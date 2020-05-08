@@ -1,0 +1,1 @@
+System.register(["./p-2aa0a451.system.js"],(function(){"use strict";var t,e;return{setters:[function(s){t=s.p;e=s.b}],execute:function(){t().then((function(t){return e([["p-b550e0c6.system",[[1,"my-rating",{maxValue:[2,"max-value"],value:[1026],starList:[32]}]]]],t)}))}}}));

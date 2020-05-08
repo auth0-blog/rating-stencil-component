@@ -1,52 +1,22 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>My Rating Component</title>
-  <script src="/build/my-rating.js"></script>
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/rating-stencil-component.esm.js"></script>
+  <script nomodule src="/build/rating-stencil-component.js"></script>
   <script>
     window.onload = function () {
-      let rating = document.getElementById("myRating2");
-
-      rating.addEventListener("onRatingUpdated", function (event) {
+      let rating = document.getElementById("myRatingComponent");
+      rating.addEventListener("ratingUpdated", function (event) {
         alert(event.detail.value);
       })
     };
-
-    function showValue() {
-      var rating = document.getElementById("myRating3");
-
-      alert(rating.value);
-    }
-
   </script>
-  <style>
-    div {
-      padding: 5px 50px 5px 50px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div>
-    <p>A silent example:</p>
-    <my-rating id="myRating1" max-value="6" value="3"></my-rating>
-  </div>
-
-  <div>
-    <p>An event capturing example:</p>
-    <my-rating id="myRating2" max-value="6" value="3"></my-rating>
-  </div>
-
-  <div>
-    <p>An example showing the value upon request :</p>
-    <my-rating id="myRating3" max-value="6" value="3"></my-rating>
-    <button onclick="showValue()">Show current value</button>
-  </div>
-
-</body>
-
-</html>
+  </head>
+  <body>
+    <my-rating id="myRatingComponent" max-value="6" value="2"></my-rating>
+  </body>
+  </html>

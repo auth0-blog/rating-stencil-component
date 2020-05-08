@@ -1,12 +1,11 @@
-import '../../stencil.core';
-import { EventEmitter } from '../../stencil.core';
+import { EventEmitter } from '../../stencil-public-runtime';
 export declare class MyRatingComponent {
     maxValue: number;
     value: number;
     starList: Array<object>;
-    onRatingUpdated: EventEmitter;
+    ratingUpdated: EventEmitter;
     componentWillLoad(): void;
     setValue(newValue: any): void;
     createStarList(numberOfStars: number): void;
-    render(): JSX.Element;
+    render(): any;
 }

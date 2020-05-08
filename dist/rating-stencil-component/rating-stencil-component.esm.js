@@ -1,0 +1,1 @@
+import{p as a,b as m}from"./p-a116d212.js";a().then(a=>m([["p-2b351fd3",[[1,"my-rating",{maxValue:[2,"max-value"],value:[1026],starList:[32]}]]]],a));

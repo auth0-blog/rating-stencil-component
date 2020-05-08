@@ -1,3 +1,4 @@
+import { Component, Prop, State, Event, h } from '@stencil/core';
 export class MyRatingComponent {
     constructor() {
         this.maxValue = 5;
@@ -10,7 +11,7 @@ export class MyRatingComponent {
     setValue(newValue) {
         this.value = newValue;
         this.createStarList(this.value);
-        this.onRatingUpdated.emit({ value: this.value });
+        this.ratingUpdated.emit({ value: this.value });
     }
     createStarList(numberOfStars) {
         let starList = [];
@@ -29,26 +30,67 @@ export class MyRatingComponent {
     }
     static get is() { return "my-rating"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["my-rating-component.css"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["my-rating-component.css"]
+    }; }
     static get properties() { return {
         "maxValue": {
-            "type": Number,
-            "attr": "max-value"
-        },
-        "starList": {
-            "state": true
+            "type": "number",
+            "mutable": false,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "max-value",
+            "reflect": false,
+            "defaultValue": "5"
         },
         "value": {
-            "type": Number,
-            "attr": "value",
-            "mutable": true
+            "type": "number",
+            "mutable": true,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "value",
+            "reflect": false,
+            "defaultValue": "0"
         }
     }; }
+    static get states() { return {
+        "starList": {}
+    }; }
     static get events() { return [{
-            "name": "onRatingUpdated",
-            "method": "onRatingUpdated",
+            "method": "ratingUpdated",
+            "name": "ratingUpdated",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
-    static get style() { return "/**style-placeholder:my-rating:**/"; }
 }

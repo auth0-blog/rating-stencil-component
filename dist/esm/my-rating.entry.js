@@ -1,11 +1,14 @@
-/*! Built with http://stenciljs.com */
-const { h } = window.MyRating;
+import { r as registerInstance, c as createEvent, h } from './index-bc59fff3.js';
 
-class MyRatingComponent {
-    constructor() {
+const myRatingComponentCss = ".rating{color:orange}";
+
+const MyRatingComponent = class {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
         this.maxValue = 5;
         this.value = 0;
         this.starList = [];
+        this.ratingUpdated = createEvent(this, "ratingUpdated", 7);
     }
     componentWillLoad() {
         this.createStarList(this.value);
@@ -13,7 +16,7 @@ class MyRatingComponent {
     setValue(newValue) {
         this.value = newValue;
         this.createStarList(this.value);
-        this.onRatingUpdated.emit({ value: this.value });
+        this.ratingUpdated.emit({ value: this.value });
     }
     createStarList(numberOfStars) {
         let starList = [];
@@ -30,30 +33,7 @@ class MyRatingComponent {
     render() {
         return (h("div", null, this.starList));
     }
-    static get is() { return "my-rating"; }
-    static get encapsulation() { return "shadow"; }
-    static get properties() { return {
-        "maxValue": {
-            "type": Number,
-            "attr": "max-value"
-        },
-        "starList": {
-            "state": true
-        },
-        "value": {
-            "type": Number,
-            "attr": "value",
-            "mutable": true
-        }
-    }; }
-    static get events() { return [{
-            "name": "onRatingUpdated",
-            "method": "onRatingUpdated",
-            "bubbles": true,
-            "cancelable": true,
-            "composed": true
-        }]; }
-    static get style() { return ".rating[data-my-rating] {\n    color: orange;\n}"; }
-}
+};
+MyRatingComponent.style = myRatingComponentCss;
 
-export { MyRatingComponent as MyRating };
+export { MyRatingComponent as my_rating };

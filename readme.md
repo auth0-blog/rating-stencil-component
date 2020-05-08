@@ -8,16 +8,19 @@ The project defines a star rating component like the following:
 
 ![](https://raw.githubusercontent.com/andychiare/rating-stencil-component/master/img/starRating.png)
 
-It allows to set your rating value, to capture the event of assigning a new rating value and to programmatically access the current rating value.
+It allows you to set your rating value, to capture the event of assigning a new rating value, and to programmatically access the current rating value.
+
+To know more about the component and how it works, check out the article [Creating Web Components with Stencil](https://auth0.com/blog/creating-web-components-with-stencil).
 
 # Using the component
 
-Copy the content of `dist` folder into a local folder named `my-rating`.
+Copy the content of `dist/rating-stencil-component` folder into a local folder named `my-rating`.
 
-Create an HTML page in a local folder and put a script tag in its head section pointing to `my-rating.js file`, like in the following example:
+Create an HTML page in a local folder and put the script tags shown below in its head section:
 
 ```html
-<script src="my-rating/my-rating.js"></script>
+<script type="module" src="my-rating/rating-stencil-component.esm.js"></script>
+<script nomodule src="my-rating/rating-stencil-component.js"></script><script>
 ```
 
 Now you can use the component in your HTML by inserting the tag `<my-rating></my-rating>`
@@ -29,9 +32,7 @@ The following are the attributes of `my-rating` element:
 | max-value | The maximum number of stars for the component | 5             |
 | value     | The rating value currently shown              | 0             |
 
-You can also handle the `onRatingUpdated` [custom event](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events), that is an event fired when the value of the component changes.
-
-See the [index.html](https://github.com/andychiare/rating-stencil-component/blob/master/src/index.html) file for some examples of use of the component.
+You can also handle the `ratingUpdated` [custom event](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events), that is an event fired when the value of the component changes.
 
 ## Exploring the project
 
